@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="American-Express-logo.png" />
+    <None Remove="bankia_logo.png" />
+    <None Remove="BBVA_logo.png" />
+    <None Remove="fondo.jpg" />
+    <None Remove="lacaixa_logo.png" />
+    <None Remove="mastercard-logo.png" />
+    <None Remove="sabadell_logo.png" />
+    <None Remove="santander_logo.png" />
+    <None Remove="visa-logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="American-Express-logo.png" />
+    <Resource Include="bankia_logo.png" />
+    <Resource Include="BBVA_logo.png" />
+    <Resource Include="fondo.jpg" />
+    <Resource Include="lacaixa_logo.png" />
+    <Resource Include="mastercard-logo.png" />
+    <Resource Include="sabadell_logo.png" />
+    <Resource Include="santander_logo.png" />
+    <Resource Include="visa-logo.png" />
+  </ItemGroup>
+
+</Project>

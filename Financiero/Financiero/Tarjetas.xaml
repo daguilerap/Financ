@@ -1,0 +1,73 @@
+﻿<Window x:Class="Financiero.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Financiero"
+        mc:Ignorable="d"
+        Title="Generador datos bancarios y números de tarjetas" Height="450" Width="600">
+    <Grid>
+        <Label Content="Número tarjeta pago" HorizontalAlignment="Left" Margin="177,306,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic UI" FontSize="14"/>
+        <TextBox x:Name="campoTarjetaPago" HorizontalAlignment="Left" Margin="177,340,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370" Height="29" BorderBrush="Black" FontSize="17" IsReadOnly="True" Background="#FFDEDEDE"/>
+        <Label Content="Banco" HorizontalAlignment="Left" Margin="42,23,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Yu Gothic UI" FontSize="14"/>
+        <ComboBox x:Name="combo_banco" HorizontalAlignment="Left" Margin="104,27,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="combo_banco_SelectionChanged">
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Santander</TextBlock>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>BBVA</TextBlock>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>La Caixa</TextBlock>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Bankia</TextBlock>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Sabadell</TextBlock>
+                </StackPanel>
+            </ComboBoxItem>
+        </ComboBox>
+        <Image x:Name="imagen_visa" Margin="42,336,436,42" Stretch="Fill" Source="visa-logo.png" Visibility="Hidden"/>
+        <Image x:Name="imagen_mastercard" Margin="42,329,436,36" Stretch="Fill" Source="mastercard-logo.png" Visibility="Hidden"/>
+        <Image x:Name="imagen_aexpress" Margin="42,329,436,36" Stretch="Fill" Source="American-Express-logo.png" Visibility="Hidden"/>
+        <Image x:Name="imagen_bbva" Margin="107,63,379,331" Stretch="Fill" Source="BBVA_logo.png" Visibility="Hidden"/>
+        <Label Content="Cuenta Corriente" HorizontalAlignment="Left" Margin="35,187,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic UI" FontSize="14"/>
+        <Label Content="Cuenta IBAN" HorizontalAlignment="Left" Margin="35,221,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic UI" FontSize="14"/>
+        <Label Content="Entidad" HorizontalAlignment="Left" Margin="190,154,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic UI" FontSize="14"/>
+        <Label Content="Sucursal" HorizontalAlignment="Left" Margin="267,154,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic UI" FontSize="14"/>
+        <Label Content="DC" HorizontalAlignment="Left" Margin="346,154,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic UI" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Cuenta" HorizontalAlignment="Left" Margin="389,154,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic UI" FontSize="14"/>
+        <TextBox x:Name="campoCoEntidad" HorizontalAlignment="Left" Margin="177,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Height="29" BorderBrush="Black" FontSize="17" MaxLength="4" UndoLimit="97" TextChanged="campoCoEntidad_TextChanged"/>
+        <TextBox x:Name="CampoIbanEntidad" HorizontalAlignment="Left" Margin="177,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Height="29" BorderBrush="Black" FontSize="17" IsReadOnly="True" Background="#FFEEEEEE"/>
+        <TextBox x:Name="campoCoSucursal" HorizontalAlignment="Left" Margin="264,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" Height="29" MaxLength="4" BorderBrush="Black" FontSize="17" TextChanged="campoCoSucursal_TextChanged"/>
+        <TextBox x:Name="campoCoDc" HorizontalAlignment="Left" Margin="341,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" Height="29" BorderBrush="Black" FontSize="17" IsReadOnly="True" CharacterCasing="Normal" Background="#FFEEEEEE"/>
+        <TextBox x:Name="campoCoCuenta" HorizontalAlignment="Left" Margin="389,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Height="29" MaxLength="10" BorderBrush="Black" FontSize="17" TextChanged="campoCoCuenta_TextChanged"/>
+        <TextBox x:Name="campoIban" HorizontalAlignment="Left" Margin="264,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283" Height="28" BorderBrush="Black" FontSize="17" IsReadOnly="True" Background="#FFEEEEEE"/>
+        <Label Content="Tarjetas crédito" HorizontalAlignment="Left" Margin="244,22,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Yu Gothic UI" FontSize="14"/>
+        <RadioButton x:Name="radio_visa" IsChecked="True" Content="VISA" HorizontalAlignment="Left" Margin="263,56,0,0" VerticalAlignment="Top" Checked="radio_visa_Checked"/>
+        <RadioButton x:Name="radio_mastercard" Content="Masterdcard" HorizontalAlignment="Left" Margin="263,76,0,0" VerticalAlignment="Top" Checked="radio_mastercard_Checked"/>
+        <RadioButton x:Name="radio_aexpress" Content="American Express" HorizontalAlignment="Left" Margin="263,96,0,0" VerticalAlignment="Top" Checked="radio_aexpress_Checked"/>
+        <Button Content="GENERAR" HorizontalAlignment="Left" Margin="425,32,0,0" VerticalAlignment="Top" Height="44" Width="133" FontFamily="Yu Gothic UI" FontSize="22" Background="#FFCFFFFF" BorderBrush="Black" Click="Button_Click"/>
+        <Label x:Name="label_error" Content="" HorizontalAlignment="Left" Margin="277,264,0,0" VerticalAlignment="Top" Foreground="Red" FontFamily="Yu Gothic UI" FontSize="14"/>
+        <Image x:Name="fotoSantander" HorizontalAlignment="Left" Height="30" Margin="63,58,0,0" VerticalAlignment="Top" Width="147" Source="/santander_logo.png" Visibility="Hidden"/>
+        <Image x:Name="fotoBbva" HorizontalAlignment="Left" Height="39" Margin="92,56,0,0" VerticalAlignment="Top" Width="119" Source="/BBVA_logo.png" Visibility="Hidden"/>
+        <Image x:Name="fotoCaixa" HorizontalAlignment="Left" Height="32" Margin="63,60,0,0" VerticalAlignment="Top" Width="147" Source="/lacaixa_logo.png" Visibility="Hidden"/>
+        <Image x:Name="fotoBankia" HorizontalAlignment="Left" Height="25" Margin="86,60,0,0" VerticalAlignment="Top" Width="100" Source="/bankia_logo.png" Visibility="Hidden"/>
+        <Image x:Name="fotoSabadell" HorizontalAlignment="Left" Height="32" Margin="63,57,0,0" VerticalAlignment="Top" Width="129" Source="/sabadell_logo.png" Visibility="Hidden"/>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="fondo.jpg"></ImageBrush>
+        </Grid.Background>
+
+    </Grid>
+</Window>
